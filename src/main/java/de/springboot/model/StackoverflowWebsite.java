@@ -1,9 +1,14 @@
 package de.springboot.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
  * Created by 1 on 18/04/2017.
  */
+@Document
 public class StackoverflowWebsite {
+    @Id
     private final String id;
     private final String iconImageUrl;
     private final String website;
