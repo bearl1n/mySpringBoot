@@ -25,3 +25,20 @@ app.controller("AppCtrl",function ($scope, $http) {
         $scope.status = response.status;
     })
 });
+
+var app1 = angular.module("mySpringBoot_users",[]);
+
+app1.controller("AppCtrl_users",function ($scope, $http) {
+    $scope.method='GET';
+    $scope.url='http://localhost:8092/api/get_users';
+
+    $http({method: 'GET', url: $scope.url}).
+    then(function(response) {
+        $scope.status = response.status;
+        $scope.websites = response.data;
+    }, function(response) {
+        $scope.websites = response.data || 'Request failed';
+        $scope.status = response.status;
+    })
+
+});

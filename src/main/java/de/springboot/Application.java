@@ -17,5 +17,10 @@ public class Application {
     public String showHelloWorld (){
         return "hello-world";
     }
+
+    @RequestMapping("/users")
+    public String showHelloUsers (){
+        return "users";
+    }
 }
 
