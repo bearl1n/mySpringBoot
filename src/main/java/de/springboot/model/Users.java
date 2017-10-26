@@ -30,9 +30,9 @@ public class Users {
 
     public Users() { }
 
-  /*  public Users(long id) {
+    public Users(long id) {
         this.id = id;
-    }*/
+    }
 
     public Users(String email, String name) {
         this.email = email;

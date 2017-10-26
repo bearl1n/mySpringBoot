@@ -1,15 +1,11 @@
 package de.springboot.controllers;
 
-import de.springboot.dao.UserDao;
 import de.springboot.model.Users;
 import de.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -21,15 +17,27 @@ import java.util.List;
 public class ApiController {
 
     // ob'yavlyaem servece
-    private UserDao userDao;
+    @Autowired
+    private UserService userService;
 
-    public ApiController(UserDao userDao){
-        this.userDao=userDao;
+
+   @RequestMapping(value = "/get_users",method = RequestMethod.GET)
+
+    public List<Users> getUsers(){
+       return userService.findAll();
     }
 
-    @RequestMapping(value = "/get_users",method = RequestMethod.GET)
-   // @ResponseBody --v1
-    public List<Users> getUsers() {
-        return userDao.findAll();
+    @RequestMapping(value = "/get_all", method = RequestMethod.GET)
+
+    public List<Users> getAll(){
+        return userService.getAll();
     }
+
+    @RequestMapping(value = "/get_users/{userId}", method = RequestMethod.GET)
+
+    public List<Users> getUserByName(@PathVariable(value = "userId") String userId){
+        return userService.getUserByName(userId);
+    }
+
+
 }
