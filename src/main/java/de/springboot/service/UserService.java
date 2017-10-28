@@ -18,7 +18,8 @@ public class UserService {
     @Autowired
     private UserDao repository;
 
-   /* private static List<Users> items= new ArrayList<>();
+   /* Comment
+   private static List<Users> items= new ArrayList<>();
     static {
         items.add(new Users("Email1","Name1"));
     } */
